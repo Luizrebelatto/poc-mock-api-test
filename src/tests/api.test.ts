@@ -54,15 +54,15 @@ describe("Mock function tests", () => {
   });
 
   it("mockRejectedValue()", async () => {
-    (api.get as jest.Mock).mockRejectedValue(new Error("Erro genérico"));
+    (api.get as jest.Mock).mockRejectedValue(new Error("Error"));
 
-    await expect(getCharacteres()).rejects.toThrow("Erro genérico");
+    await expect(getCharacteres()).rejects.toThrow("Error");
   });
 
   it("mockRejectedValueOnce()", async () => {
-    (api.get as jest.Mock).mockRejectedValueOnce(new Error("Falha temporária"));
+    (api.get as jest.Mock).mockRejectedValueOnce(new Error("Fail"));
 
-    await expect(getCharacteres()).rejects.toThrow("Falha temporária");
+    await expect(getCharacteres()).rejects.toThrow("Fail");
   });
 
   it("mockImplementation()", async () => {
