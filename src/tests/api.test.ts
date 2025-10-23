@@ -71,7 +71,8 @@ describe("Mock function tests", () => {
     });
 
     const data = await getCharacteres();
-    expect(data.info.pages).toBe(1);
+    expect(data).toHaveProperty('info');
+    expect(data.info).toHaveProperty('pages', 1);
   });
 
   it("mockImplementationOnce()", async () => {
@@ -80,6 +81,8 @@ describe("Mock function tests", () => {
     });
 
     const data = await getCharacteres();
-    expect(data.results[0].id).toBe(1);
+    expect(data).toHaveProperty('results');
+    expect(data.results).toHaveLength(1);
+    expect(data.results[0]).toHaveProperty('id', 1);
   });
 });
